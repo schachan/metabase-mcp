@@ -64,6 +64,7 @@ dev = [
     "isort>=5.13.0",
     "mypy>=1.13.0",
     "ruff>=0.8.0",
+    "pytest-cov>=7.0.0",
 ]
 
 [project.scripts]
@@ -75,7 +76,11 @@ Repository = "https://github.com/hyeongjun-dev/metabase-mcp"
 Issues = "https://github.com/hyeongjun-dev/metabase-mcp/issues"
 
 [tool.hatch.build.targets.wheel]
-packages = ["."]
+packages = [".", "tools"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
 
 [tool.black]
 line-length = 100

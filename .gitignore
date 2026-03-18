@@ -58,7 +58,6 @@ lerna-debug.log*
 .pnpm-debug.log*
 
 # Testing
-tests/
 examples/
 coverage/
 .nyc_output/
@@ -121,3 +120,4 @@ debug/
 # pnpm-lock.yaml
 
 CLAUDE.md
+.claude/
