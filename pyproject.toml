@@ -3,14 +3,14 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "metabase-mcp"
+name = "metabase-mcp-plus"
 version = "1.0.0"
-description = "Model Context Protocol (MCP) server for Metabase - Connect AI assistants like Claude and Cursor to your Metabase analytics platform"
+description = "Enhanced MCP server for Metabase — query databases, manage dashboards, cards, and collections from AI assistants like Claude and Cursor"
 readme = "README.md"
 requires-python = ">=3.12"
 license = {text = "MIT"}
 authors = [
-    {name = "cheukyin175", email = "cheukyin175@gmail.com"},
+    {name = "Sahil Chachan"},
 ]
 keywords = [
     "metabase",
@@ -68,15 +68,26 @@ dev = [
 ]
 
 [project.scripts]
-metabase-mcp = "server:main"
+metabase-mcp-plus = "server:main"
 
 [project.urls]
-Homepage = "https://github.com/hyeongjun-dev/metabase-mcp"
-Repository = "https://github.com/hyeongjun-dev/metabase-mcp"
-Issues = "https://github.com/hyeongjun-dev/metabase-mcp/issues"
+Homepage = "https://github.com/schachan/metabase-mcp"
+Repository = "https://github.com/schachan/metabase-mcp"
+Issues = "https://github.com/schachan/metabase-mcp/issues"
+
+[tool.hatch.build]
+exclude = [
+    "tests/",
+    ".github/",
+    ".env*",
+    ".gitignore",
+    ".python-version",
+    "uv.lock",
+    "dist/",
+]
 
 [tool.hatch.build.targets.wheel]
-packages = [".", "tools"]
+packages = ["."]
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"

@@ -1,6 +1,6 @@
-# Metabase MCP Server - Connect AI Assistants to Your Metabase Analytics
+# Metabase MCP Plus - Connect AI Assistants to Your Metabase Analytics
 
-[![PyPI version](https://badge.fury.io/py/metabase-mcp.svg)](https://badge.fury.io/py/metabase-mcp)
+[![PyPI version](https://badge.fury.io/py/metabase-mcp-plus.svg)](https://badge.fury.io/py/metabase-mcp-plus)
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![FastMCP](https://img.shields.io/badge/FastMCP-v2.12+-green.svg)](https://github.com/jlowin/fastmcp)
@@ -51,28 +51,28 @@ A high-performance **Model Context Protocol (MCP) server** for **Metabase**, ena
 #### Option 1: Using uvx (Easiest - No Installation Required)
 ```bash
 # Run directly without installing (like npx for Python)
-uvx metabase-mcp
+uvx metabase-mcp-plus
 
 # With environment variables
-METABASE_URL=https://your-instance.com METABASE_API_KEY=your-key uvx metabase-mcp
+METABASE_URL=https://your-instance.com METABASE_API_KEY=your-key uvx metabase-mcp-plus
 ```
 
 #### Option 2: Install from PyPI
 ```bash
 # Install globally
-uv tool install metabase-mcp
+uv tool install metabase-mcp-plus
 
 # Or with pip
-pip install metabase-mcp
+pip install metabase-mcp-plus
 
 # Then run
-metabase-mcp
+metabase-mcp-plus
 ```
 
 #### Option 3: Development Setup (From Source)
 ```bash
 # Clone the repository
-git clone https://github.com/cheukyin175/metabase-mcp.git
+git clone https://github.com/schachan/metabase-mcp.git
 cd metabase-mcp
 
 # Install dependencies
@@ -118,10 +118,10 @@ PORT=9000      # Default: 8000
 #### Quick Start (No Setup Required)
 ```bash
 # Run directly with uvx
-uvx metabase-mcp
+uvx metabase-mcp-plus
 
 # With custom Metabase instance
-METABASE_URL=https://your-instance.com METABASE_API_KEY=your-key uvx metabase-mcp
+METABASE_URL=https://your-instance.com METABASE_API_KEY=your-key uvx metabase-mcp-plus
 ```
 
 #### From Source (Development)
@@ -156,9 +156,9 @@ Add this to `~/Library/Application Support/Claude/claude_desktop_config.json`:
 ```json
 {
     "mcpServers": {
-        "metabase-mcp": {
+        "metabase-mcp-plus": {
             "command": "uvx",
-            "args": ["metabase-mcp"],
+            "args": ["metabase-mcp-plus"],
             "env": {
                 "METABASE_URL": "https://your-metabase-instance.com",
                 "METABASE_API_KEY": "your-api-key-here"
@@ -173,7 +173,7 @@ If you've cloned the repository:
 ```json
 {
     "mcpServers": {
-        "metabase-mcp": {
+        "metabase-mcp-plus": {
             "command": "uv",
             "args": [
                 "run",
