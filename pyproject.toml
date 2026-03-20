@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "metabase-mcp-plus"
-version = "1.0.0"
+version = "1.0.1"
 description = "Enhanced MCP server for Metabase — query databases, manage dashboards, cards, and collections from AI assistants like Claude and Cursor"
 readme = "README.md"
 requires-python = ">=3.12"

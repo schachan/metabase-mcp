@@ -646,8 +646,8 @@ wheels = [
 ]
 
 [[package]]
-name = "metabase-mcp"
-version = "1.0.0"
+name = "metabase-mcp-plus"
+version = "1.0.1"
 source = { editable = "." }
 dependencies = [
     { name = "fastmcp" },

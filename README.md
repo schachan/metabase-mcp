@@ -189,7 +189,8 @@ metabase-mcp/
 ├── tests/                 # Comprehensive test suite (95% coverage)
 ├── .github/workflows/
 │   ├── ci.yml             # Lint + test on push/PR
-│   └── publish.yml        # Automated PyPI publish on release
+│   └── publish.yml        # Release → PyPI + attach assets
+├── RELEASING.md           # How to cut a release (trusted publisher setup)
 └── pyproject.toml
 ```
 
@@ -214,6 +215,12 @@ uv run pytest tests/ --cov=. --cov=tools --cov-report=term-missing -v
 - **Custom exceptions** — `MetabaseAPIError` and `MetabaseAuthError` for typed error handling
 - **Error handler decorator** — `@tool_error_handler` eliminates boilerplate try/except across all 22 tools
 - **Middleware stack** — built-in error handling and logging middleware via FastMCP
+
+## Releases & PyPI
+
+Publishing to [PyPI](https://pypi.org/project/metabase-mcp-plus/) is automated when you **publish a GitHub Release** (workflow [`.github/workflows/publish.yml`](.github/workflows/publish.yml)): lint → test → build → attach wheels to the release → upload to PyPI (trusted publisher / OIDC).
+
+See **[RELEASING.md](RELEASING.md)** for one-time PyPI + GitHub environment setup and the exact tag/version rules (`v1.2.3` must match `version = "1.2.3"` in `pyproject.toml`).
 
 ## License
 
