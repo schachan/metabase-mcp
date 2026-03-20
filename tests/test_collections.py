@@ -55,9 +55,7 @@ async def test_get_collection_items(mock_ctx, mock_request):
 
 @pytest.mark.asyncio
 async def test_get_collection_items_with_model_filter(mock_ctx, mock_request):
-    mock_request.return_value = {
-        "data": [{"id": 1, "model": "card", "name": "Question 1"}]
-    }
+    mock_request.return_value = {"data": [{"id": 1, "model": "card", "name": "Question 1"}]}
     await get_collection_items.fn(1, mock_ctx, models=["card"])
     call_kwargs = mock_request.call_args
     assert call_kwargs[1]["params"]["models"] == ["card"]

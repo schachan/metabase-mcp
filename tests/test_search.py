@@ -22,9 +22,7 @@ async def test_search(mock_ctx, mock_request):
 
 @pytest.mark.asyncio
 async def test_search_with_model_filter(mock_ctx, mock_request):
-    mock_request.return_value = {
-        "data": [{"id": 1, "name": "Revenue Report", "model": "card"}]
-    }
+    mock_request.return_value = {"data": [{"id": 1, "name": "Revenue Report", "model": "card"}]}
     await search.fn("revenue", mock_ctx, models=["card"])
     call_kwargs = mock_request.call_args
     assert call_kwargs[1]["params"]["models"] == ["card"]

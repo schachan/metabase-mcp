@@ -1,7 +1,9 @@
 """Tests for MetabaseClient optimizations."""
 
-import pytest
 from unittest.mock import AsyncMock, MagicMock
+
+import pytest
+from fastmcp.exceptions import ToolError
 
 from client import (
     MetabaseAPIError,
@@ -10,7 +12,6 @@ from client import (
     _safe_json,
     tool_error_handler,
 )
-from fastmcp.exceptions import ToolError
 
 
 class TestSafeJson:
