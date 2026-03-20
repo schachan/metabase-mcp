@@ -1,5 +1,6 @@
 """Metabase MCP application setup - shared FastMCP instance and client."""
 
+import inspect
 import logging
 import os
 
@@ -28,12 +29,22 @@ if not METABASE_URL or (
         "METABASE_USER_EMAIL and METABASE_PASSWORD must be provided"
     )
 
-mcp = FastMCP(
-    name="metabase-mcp",
-    on_duplicate_tools="error",
-    on_duplicate_resources="warn",
-    on_duplicate_prompts="warn",
-)
+# FastMCP v3+ uses a single on_duplicate=; v2 / early v3 use per-component kwargs.
+_fastmcp_params = inspect.signature(FastMCP.__init__).parameters
+if "on_duplicate" in _fastmcp_params:
+    mcp = FastMCP(
+        name="metabase-mcp",
+        on_duplicate="error",
+    )
+elif "on_duplicate_tools" in _fastmcp_params:
+    mcp = FastMCP(
+        name="metabase-mcp",
+        on_duplicate_tools="error",
+        on_duplicate_resources="warn",
+        on_duplicate_prompts="warn",
+    )
+else:
+    mcp = FastMCP(name="metabase-mcp")
 
 mcp.add_middleware(ErrorHandlingMiddleware())
 mcp.add_middleware(LoggingMiddleware())
